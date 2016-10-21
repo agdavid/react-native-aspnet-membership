@@ -68,9 +68,8 @@ module.exports = React.createClass({
   })
   //.then((response) => response.json())
   .then((responseData) => {
-    AsyncStorage.setItem('cookie',JSON.stringify(responseData));
+    AsyncStorage.setItem('cookie',JSON.stringify(responseData.headers.map["set-cookie"]));
     console.log("success");
-    debugger;
     this.props.navigator.push({ name: 'landing' });
     })
   .done();
